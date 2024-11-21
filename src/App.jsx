@@ -71,14 +71,4 @@ const App = () => {
 };
 
 export default App;
-{
-  /* 
-<>
-<NavBar />
-<Hero/>
-<HomeCards/>
-<JobListings/>
-<ViewAllJobs/>      
-</> 
-*/
-}
+
