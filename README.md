@@ -1,32 +1,20 @@
-# React Job Website
+# React Jobs Project (YouTube)
 
-This project is a job listing website built with a React frontend and a Node.js/Express/MongoDB backend. It's a full-stack MERN application that allows users to browse, add, edit, and delete job listings.
-
-It was originally inspired by a YouTube tutorial by [Traversy Media](https://youtu.be/LDB4uaJ87e0) but has been extended with a custom backend.
+This project is a job listing website built with React.js, inspired by a YouTube tutorial by [Traversy Media](https://youtu.be/LDB4uaJ87e0). It showcases modern React practices, including functional components, hooks, and reusable design.
 
 <img src="public/screen.png" />
 
-## Features
+## Usage
 
-- **React Frontend:** Built with Vite, using functional components and hooks.
-- **Node.js & Express Backend:** A robust API for managing job data.
-- **MongoDB Database:** Data persistence for job listings.
-- **Full CRUD Functionality:** Create, Read, Update, and Delete jobs.
-- **Responsive Design:** Styled with Tailwind CSS.
-
-## Prerequisites
-
-- Node.js and npm
-- MongoDB (either a local instance or a cloud service like MongoDB Atlas)
+This project uses JSON-Server for a mock backend.
 
 ## Installation and Setup
 
 Follow these steps to run the project locally:
 
-1. **Clone the repository:**
+### Clone the repository:
 ```bash
-git clone https://github.com/Harshit-Soni78/React-Job-Website.git
-cd React-Job-Website
+git clone https://github.com/your-username/job-website.git
 ```
 
 ### Run JSON Server
@@ -56,3 +44,7 @@ npm run build
 ```bash
 npm run preview
 ```
+
+
+
+

@@ -8,32 +8,20 @@ import { Link } from "react-router-dom";
 import { FaLocationDot } from "react-icons/fa6";
 import { toast } from "react-toastify";
 
-const JobPage = () => {
+const JobPage = ({ deleteJob }) => {
   const navigate = useNavigate();
   const { id } = useParams();
   const job = useLoaderData();
-
-  const onDeleteClick = async (jobId) => {
+  const onDeleteClick = (jobId) => {
     const confirm = window.confirm(
       "Are you sure you want to delete this listing?"
     );
     if (!confirm) return;
+    deleteJob(jobId);
 
-    try {
-      const res = await fetch(`/api/jobs/${jobId}`, {
-        method: "DELETE",
-      });
+    toast.success("Job Deleted Successfully");
 
-      if (res.ok) {
-        toast.success("Job Deleted Successfully");
-        navigate("/jobs");
-      } else {
-        toast.error("Failed to delete job");
-      }
-    } catch (error) {
-      console.error("Error deleting job:", error);
-      toast.error("Failed to delete job");
-    }
+    navigate("/jobs");
   };
   //   const [job, setJob] = useState(null);
   //   const [loading, setLoading] = useState(true);
@@ -124,13 +112,13 @@ const JobPage = () => {
               <div className="bg-white p-6 rounded-lg shadow-md mt-6">
                 <h3 className="text-xl font-bold mb-6">Manage Job</h3>
                 <Link
-                  to={`/edit-job/${job._id}`}
+                  to={`/edit-job/${job.id}`}
                   className="bg-indigo-500 hover:bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
                 >
                   Edit Job
                 </Link>
                 <button
-                  onClick={() => onDeleteClick(job._id)}
+                  onClick={() => onDeleteClick(job.id)}
                   className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
                 >
                   Delete Job
