@@ -15,7 +15,6 @@ const JobListings = ({ isHome = false }) => {
 
       try {
         const res = await fetch(apiUrl);
-        console.log("res");
         const data = await res.json();
         setJobs(data);
       } catch (error) {
@@ -40,7 +39,7 @@ const JobListings = ({ isHome = false }) => {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {jobs.map((job) => (
-                <JobListing key={job.di} job={job} />
+                <JobListing key={job._id} job={job} />
               ))}
             </div>
           )}

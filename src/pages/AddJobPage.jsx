@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const AddJobPage = ({ addJobSubmit }) => {
+const AddJobPage = () => {
   const [title, setTitle] = useState("");
   const [type, setType] = useState("Full-Time");
   const [location, setLocation] = useState("");
@@ -16,7 +16,7 @@ const AddJobPage = ({ addJobSubmit }) => {
 
   const navigate = useNavigate();
 
-  const submitForm = (e) => {
+  const submitForm = async (e) => {
     e.preventDefault();
 
     const newJob = {
@@ -30,13 +30,28 @@ const AddJobPage = ({ addJobSubmit }) => {
         description: companyDescription,
         contactEmail,
         contactPhone,
-        // contactEmail: contactEmail,
-        // contactPhone: contactPhone,
       },
     };
-    addJobSubmit(newJob);
-    toast.success("Job Added Successfully");
-    return navigate("/jobs");
+
+    try {
+      const res = await fetch('/api/jobs', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newJob),
+      });
+
+      if (res.ok) {
+        toast.success("Job Added Successfully");
+        return navigate("/jobs");
+      } else {
+        toast.error("Failed to add job");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("Failed to add job");
+    }
   };
 
   return (
