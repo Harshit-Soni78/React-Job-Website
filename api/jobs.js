@@ -29,7 +29,7 @@ export default async (req, res) => {
         res.setHeader('Content-Type', 'application/json');
         res.status(200).end(JSON.stringify(jobs));
       } else if (pathname.startsWith('/api/jobs/')) {
-        const id = pathname.split('/')[3];
+        const id = pathname.split('/')[2];
         const job = await collection.findOne({ id });
         if (job) {
           res.setHeader('Content-Type', 'application/json');
@@ -55,7 +55,7 @@ export default async (req, res) => {
       }
     } else if (req.method === 'PUT') {
       if (pathname.startsWith('/api/jobs/')) {
-        const id = pathname.split('/')[3];
+        const id = pathname.split('/')[2];
         const updatedJob = req.body;
         const result = await collection.updateOne({ id }, { $set: updatedJob });
         if (result.matchedCount > 0) {
@@ -71,7 +71,7 @@ export default async (req, res) => {
       }
     } else if (req.method === 'DELETE') {
       if (pathname.startsWith('/api/jobs/')) {
-        const id = pathname.split('/')[3];
+        const id = pathname.split('/')[2];
         const result = await collection.deleteOne({ id });
         if (result.deletedCount > 0) {
           res.setHeader('Content-Type', 'application/json');
@@ -96,4 +96,3 @@ export default async (req, res) => {
     await client.close();
   }
 };
-    
