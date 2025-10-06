@@ -20,7 +20,7 @@ const App = () => {
     const res = await fetch("/api/jobs", {
       method: "POST",
       headers: {
-        "Contant-Type": "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(newJob),
     });
@@ -40,7 +40,7 @@ const App = () => {
     const res = await fetch(`/api/jobs/${job.id}`, {
       method: "PUT",
       headers: {
-        "Contant-Type": "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(job),
     });

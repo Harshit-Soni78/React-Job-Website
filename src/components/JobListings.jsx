@@ -8,15 +8,19 @@ const JobListings = ({ isHome = false }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fatchJobs = async () => {
+    const fetchJobs = async () => {
       const apiUrl = isHome
         ? "/api/jobs?_limit=3"
         : "/api/jobs";
 
       try {
         const res = await fetch(apiUrl);
-        console.log("res");
+        console.log("res", res);
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
         const data = await res.json();
+        console.log("data", data);
         setJobs(data);
       } catch (error) {
         console.log("Error fetching data ", error);
@@ -25,7 +29,7 @@ const JobListings = ({ isHome = false }) => {
       }
     };
 
-    fatchJobs();
+    fetchJobs();
   }, []);
 
   return (
@@ -40,7 +44,7 @@ const JobListings = ({ isHome = false }) => {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {jobs.map((job) => (
-                <JobListing key={job.di} job={job} />
+                <JobListing key={job.id} job={job} />
               ))}
             </div>
           )}
