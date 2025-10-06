@@ -16,8 +16,8 @@ import MainLayout from "./layouts/Mainlayout";
 
 const App = () => {
   // Add new job
-  const addJob = async (newJob) => {
-    const res = await fetch("/api/jobs", {
+const addJob = async (newJob) => {
+    const res = await fetch("https://react-job-website-backend.onrender.com/jobs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -28,16 +28,16 @@ const App = () => {
   };
 
   // Delete job
-  const deleteJob = async (id) => {
-    const res = await fetch(`/api/jobs/${id}`, {
+const deleteJob = async (id) => {
+    const res = await fetch(`https://react-job-website-backend.onrender.com/jobs/${id}`, {
       method: "DELETE"
     });
     return;
   };
 
   // Update Job
-  const updatedJob = async (job) => {
-    const res = await fetch(`/api/jobs/${job.id}`, {
+const updatedJob = async (job) => {
+    const res = await fetch(`https://react-job-website-backend.onrender.com/jobs/${job.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -10,8 +10,8 @@ const JobListings = ({ isHome = false }) => {
   useEffect(() => {
     const fetchJobs = async () => {
       const apiUrl = isHome
-        ? "/api/jobs?_limit=3"
-        : "/api/jobs";
+        ? "https://react-job-website-backend.onrender.com/jobs?_limit=3"
+        : "https://react-job-website-backend.onrender.com/jobs";
 
       try {
         const res = await fetch(apiUrl);
