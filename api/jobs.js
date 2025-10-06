@@ -4,6 +4,7 @@ const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
 
 export default async (req, res) => {
+  console.log('API request:', req.method, req.url);
   const url = new URL(req.url, `http://${req.headers.host}`);
   const pathname = url.pathname;
 
@@ -15,7 +16,14 @@ export default async (req, res) => {
       req.on('end', () => resolve(data));
       req.on('error', reject);
     });
-    req.body = JSON.parse(body);
+    try {
+      req.body = JSON.parse(body);
+    } catch (err) {
+      console.error('Error parsing JSON body:', err);
+      res.setHeader('Content-Type', 'application/json');
+      res.status(400).end(JSON.stringify({ message: 'Invalid JSON body' }));
+      return;
+    }
   }
 
   try {
@@ -90,6 +98,7 @@ export default async (req, res) => {
       res.status(405).end(JSON.stringify({ message: `Method ${req.method} Not Allowed` }));
     }
   } catch (error) {
+    console.error('API error:', error);
     res.setHeader('Content-Type', 'application/json');
     res.status(500).end(JSON.stringify({ message: 'Internal Server Error', error: error.message }));
   } finally {
