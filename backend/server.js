@@ -19,6 +19,10 @@ const client = new MongoClient(uri);
 app.use(cors());
 app.use(express.json());
 
+// Define the GET route for "/"
+app.get('/', (req, res) => {
+  res.send('<h1>Hello!! Welcome to Backend API for React-Job-Website</h1>');
+});
 
 // Define the GET route for "/jobs"
 app.get('/jobs', async (req, res) => {
