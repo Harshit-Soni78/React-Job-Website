@@ -15,6 +15,8 @@ import MainLayout from "./layouts/Mainlayout";
 
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
+console.log("Backend URL:", BASE_URL);
+
 const App = () => {
   // Add new job
   const addJob = async (newJob) => {
