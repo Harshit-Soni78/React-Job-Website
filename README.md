@@ -1,37 +1,92 @@
-# React Jobs Project (YouTube)
+# React Job Website
 
-This project is a job listing website built with React.js, inspired by a YouTube tutorial by [Traversy Media](https://youtu.be/LDB4uaJ87e0). It showcases modern React practices, including functional components, hooks, and reusable design.
+A modern job listing platform built with React and Express, featuring a responsive frontend and a robust backend API. This project allows users to browse, add, edit, and view job listings seamlessly.
 
-<img src="public/screen.png" />
+![Project Screenshot](public/screen.png)
 
-## Usage
+## 🚀 Live Demo
 
-This project uses JSON-Server for a mock backend.
+- **Frontend**: [https://react-job-website.harshitsoni.space/](https://react-job-website.harshitsoni.space/)
+- **Backend API**: [https://api.react-job-website.harshitsoni.space/](https://api.react-job-website.harshitsoni.space/)
 
-## Installation and Setup
+## 🛠️ Tech Stack
+
+### Frontend
+
+- **React** - A JavaScript library for building user interfaces
+- **Vite** - Fast build tool and development server
+- **Tailwind CSS** - Utility-first CSS framework
+- **React Router** - Declarative routing for React
+
+### Backend
+
+- **Express.js** - Web application framework for Node.js
+- **MongoDB** - NoSQL database for storing job data
+- **Node.js** - JavaScript runtime environment
+
+## ✨ Features
+
+- Browse job listings with pagination
+- View detailed job information
+- Add new job listings
+- Edit existing job listings
+- Responsive design for mobile and desktop
+- RESTful API for job data management
+
+## 📡 API Usage
+
+The backend provides a RESTful API that you can use to interact with job data. Base URL: `https://api.react-job-website.harshitsoni.space/`
+
+### Endpoints
+
+- `GET /jobs` - Retrieve all job listings
+- `GET /jobs/:id` - Retrieve a specific job by ID
+- `POST /jobs` - Create a new job listing
+- `PUT /jobs/:id` - Update an existing job listing
+- `DELETE /jobs/:id` - Delete a job listing
+
+### Example API Request
+
+```bash
+curl -X GET "https://api.react-job-website.harshitsoni.space/jobs"
+```
+
+## 🏃‍♂️ Installation and Setup
 
 Follow these steps to run the project locally:
 
-### Clone the repository:
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+- MongoDB (for backend)
+
+### Clone the Repository
+
 ```bash
-git clone https://github.com/your-username/job-website.git
+git clone https://github.com/Harshit-Soni78/React-Job-Website.git
+cd react-job-website
 ```
 
-### Run JSON Server
-
-The server will run on http://localhost:8000
+### Backend Setup
 
 ```bash
-npm run server
-```
-
-### Run Vite Frontend
-
-React will run on http://localhost:3000
-
-```bash
+cd backend
+npm install
 npm run dev
 ```
+
+The backend server will run on `http://localhost:5000` (or as configured).
+
+### Frontend Setup
+
+```bash
+cd ..
+npm install
+npm run dev
+```
+
+The frontend will run on `http://localhost:5173` (Vite default).
 
 ### Build for Production
 
@@ -45,6 +100,14 @@ npm run build
 npm run preview
 ```
 
+## 🤝 Contributing
 
+Contributions are welcome! Please feel free to submit a Pull Request.
 
+## 📄 License
 
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+Inspired by Traversy Media's React tutorial.
