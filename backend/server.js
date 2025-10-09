@@ -19,6 +19,8 @@ const client = new MongoClient(uri);
 app.use(cors());
 app.use(express.json());
 
+
+// Define the GET route for "/jobs"
 app.get('/jobs', async (req, res) => {
   try {
     await client.connect();
@@ -36,6 +38,7 @@ app.get('/jobs', async (req, res) => {
   }
 });
 
+// Define the GET route for "/jobs/:id"
 app.get('/jobs/:id', async (req, res) => {
   try {
     await client.connect();
@@ -55,6 +58,7 @@ app.get('/jobs/:id', async (req, res) => {
   }
 });
 
+// Define the POST route for "/jobs"
 app.post('/jobs', async (req, res) => {
   try {
     await client.connect();
@@ -72,6 +76,7 @@ app.post('/jobs', async (req, res) => {
   }
 });
 
+// Define the PUT route for "/jobs/:id"
 app.put('/jobs/:id', async (req, res) => {
   try {
     await client.connect();
@@ -92,6 +97,7 @@ app.put('/jobs/:id', async (req, res) => {
   }
 });
 
+// Define the DELETE route for "/jobs/:id"
 app.delete('/jobs/:id', async (req, res) => {
   try {
     await client.connect();
@@ -111,6 +117,7 @@ app.delete('/jobs/:id', async (req, res) => {
   }
 });
 
+// Start the server
 app.listen(port, () => {
   console.log(`Backend server running on port ${port}`);
 });
