@@ -133,7 +133,7 @@ const JobPage = ({ deleteJob }) => {
 };
 
 const jobLoder = async ({ params }) => {
-  const res = await fetch(`https://react-job-website-backend.onrender.com/jobs/${params.id}`);
+  const res = await fetch(`https://api.react-job-website.harshitsoni.space/jobs/${params.id}`);
   const data = await res.json();
   return data;
 };
