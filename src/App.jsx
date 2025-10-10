@@ -13,14 +13,10 @@ import EditJobPage from "./pages/EditJobPage";
 import AddJobPage from "./pages/AddJobPage";
 import MainLayout from "./layouts/Mainlayout";
 
-const BASE_URL = import.meta.env.VITE_BACKEND_URL;
-
-console.log("Backend URL:", BASE_URL);
-
 const App = () => {
   // Add new job
   const addJob = async (newJob) => {
-    await fetch(`${BASE_URL}/jobs`, {
+    await fetch(`https://api.react-job-website.harshitsoni.space/jobs`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,7 +28,7 @@ const App = () => {
 
   // Delete job
   const deleteJob = async (id) => {
-    await fetch(`${BASE_URL}/jobs/${id}`, {
+    await fetch(`https://api.react-job-website.harshitsoni.space/jobs/${id}`, {
       method: "DELETE",
     });
     return;
@@ -40,7 +36,7 @@ const App = () => {
 
   // Update Job
   const updatedJob = async (job) => {
-    await fetch(`${BASE_URL}/jobs/${job.id}`, {
+    await fetch(`https://api.react-job-website.harshitsoni.space/${job.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
